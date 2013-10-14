@@ -7,8 +7,6 @@ from nose.tools import assert_equals
 def test_fetch_taxonomy():
     taxonomy_fetcher = fetch_taxonomy.TaxonomyFetcher()
     input_names = [
-        "Aelosoma travancorense",
-        "Cognettia sp.",
         "Enchytraeus albidus",
         "Henlea perpusilla",
         "Henlea ventriculosa",
@@ -16,12 +14,10 @@ def test_fetch_taxonomy():
         "Lumbriculus variegatus"
     ]
     expected_output = [
-        {"Kingdom": "Animalia", "Phylum": "Annelida", "Subphylum": "", "Class": "Aphanoneura", "Subclass": "", "Order": "Naidomorpha", "Family": "Aeolosomatidae", "Subfamily": "", "Genus": "Aeolosoma", "Species": "Aelosoma travancorense"},
-        {"Kingdom": "Animalia", "Phylum": "Annelida", "Subphylum": "", "Class": "Clitellata", "Subclass": "Oligochaeta", "Order": "Enchytraeida", "Family": "Enchytraeidae", "Subfamily": "", "Genus": "Cognettia", "Species": "Cognettia sp."},
-        {"Kingdom": "Animalia", "Phylum": "Annelida", "Subphylum": "", "Class": "Clitellata", "Subclass": "Oligochaeta", "Order": "Enchytraeida", "Family": "Enchytraeidae", "Subfamily": "", "Genus": "Enchytraeus", "Species": "Enchytraeus albidus"},
-        {"Kingdom": "Animalia", "Phylum": "Annelida", "Subphylum": "", "Class": "Clitellata", "Subclass": "Oligochaeta", "Order": "Enchytraeida", "Family": "Enchytraeidae", "Subfamily": "", "Genus": "Henlea", "Species": "Henlea perpusilla"},
-        {"Kingdom": "Animalia", "Phylum": "Annelida", "Subphylum": "", "Class": "Clitellata", "Subclass": "Oligochaeta", "Order": "Enchytraeida", "Family": "Enchytraeidae", "Subfamily": "", "Genus": "Henlea", "Species": "Henlea ventriculosa"},
-        {"Kingdom": "Animalia", "Phylum": "Annelida", "Subphylum": "", "Class": "Clitellata", "Subclass": "Oligochaeta", "Order": "Enchytraeida", "Family": "Enchytraeidae", "Subfamily": "", "Genus": "Lumbricillus", "Species": "Lumbricillus lineatus"},
-        {"Kingdom": "Animalia", "Phylum": "Annelida", "Subphylum": "", "Class": "Clitellata", "Subclass": "Oligochaeta", "Order": "Enchytraeida", "Family": "Enchytraeidae", "Subfamily": "", "Genus": "Lumbricillus", "Species": "Lumbricillus variegatus"}
+        {"Kingdom": "Animalia", "Phylum": "Annelida", "Class": "Clitellata", "Order": "Enchytraeida", "Family": "Enchytraeidae", "Genus": "Enchytraeus"},
+        {"Kingdom": "Animalia", "Phylum": "Annelida", "Class": "Clitellata", "Order": "Enchytraeida", "Family": "Enchytraeidae", "Genus": "Henlea"},
+        {"Kingdom": "Animalia", "Phylum": "Annelida", "Class": "Clitellata", "Order": "Enchytraeida", "Family": "Enchytraeidae", "Genus": "Henlea"},
+        {"Kingdom": "Animalia", "Phylum": "Annelida", "Class": "Clitellata", "Order": "Enchytraeida", "Family": "Enchytraeidae", "Genus": "Lumbricillus"},
+        {"Kingdom": "Animalia", "Phylum": "Annelida", "Class": "Clitellata", "Order": "Lumbriculida", "Family": "Lumbriculidae", "Genus": "Lumbriculus"}
     ]
     assert_equals(taxonomy_fetcher.get_all_classifications(input_names), expected_output)
