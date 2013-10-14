@@ -9,6 +9,7 @@ The code here fetches the taxonomic classification for input taxa, using the RES
 ## Requirements
 
 - [Python](http://www.python.org/): I am currently using version 2.7.2.
+- [Make](http://www.gnu.org/software/make/): Present on Linux systems, but might be absent on Mac. For Mac users, you'll need to install [xcode](https://developer.apple.com/xcode/) which includes make. 
 - [nose](http://nose.readthedocs.org/en/latest/): This python package is needed to run the tests in this repository. Install it with `sudo pip install nose`.
 - [requests](http://docs.python-requests.org/en/latest/): This python package is needed to call webservices. Install it with `sudo pip install requests`.
 - [lxml](http://lxml.de/): This python package is used to parse the xml output. Install it with `sudo pip install lxml`.
