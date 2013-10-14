@@ -1,0 +1,35 @@
+# Fetching taxonomic information using Catalogue of Life
+
+This repository will demonstrate the use of the Catalogue of Life webservice to fetch taxonomic information.
+
+## Description
+
+The code here fetches the taxonomic classification for input taxa, using the REST webservice of [Catalogue of Life](http://www.catalogueoflife.org/). By providing input species names (I haven't tested yet what happens if you give other taxan ranks as input), the script here returns the kingdom, phylum, class, order, family and genus.
+
+## Requirements
+
+- [Python](http://www.python.org/): I am currently using version 2.7.2.
+- [nose](http://nose.readthedocs.org/en/latest/): This python package is needed to run the tests in this repository. Install it with `sudo pip install nose`.
+- [requests](http://docs.python-requests.org/en/latest/): This python package is needed to call webservices. Install it with `sudo pip install requests`.
+- [lxml](http://lxml.de/): This python package is used to parse the xml output. Install it with `sudo pip install lxml`.
+
+## Contents
+
+- `Makefile`: This file demonstrates the use of the script. It also contains rules to run the tests. Run `make test` to run both unit tests and end to end tests. Run `make example` to perform an example run of the script.
+- `bin/fetch_taxonomy_from_file.py`: This is the script you can use from the terminal. Usage: `./bin/fetch_taxonomy_from_file.py infile`. The infile should contain a number of taxa, one taxon per line.
+- `src/fetch_taxonomy.py`: This file contains source code for calling the CoL webservice and parsing the results.
+- `test/fetch_taxonomy_feature.py`: This file contains end to end tests. Run `make e2e_tests` to run only these end to end tests.
+- `test/taxonomy_fetcher_unit.py`: This file contains unit tests. Run `make unit_tests` to run only these unit tests. 
+
+## Usage
+
+### Run it
+
+- Create an inputfile with taxa for which you want to retrieve the Catalogue of Life classification. This file should contain taxon names, one taxon per name.
+- Run `./bin/fetch_taxonomy_from_file.py infile`
+- Have fun with the output.
+
+### Run an example
+
+Run `make example` to perform an example run. This command will create an `example` directory and create a file there containing 3 species. Don't write anything in this directory as it will be removed the next time you run `make example`. Next, it will run the script and write the output on the screen.
+
