@@ -9,11 +9,13 @@ class TaxonomyFetcher:
 	doc = etree.fromstring(full_response_xml_input)
 	outdict = {}
 	for result in doc.iterfind("result"):
-	    classification = result.find("classification")
-	    for taxon in classification.iterfind("taxon"):
-		rank = taxon.find("rank").text
-		name = taxon.find("name").text
-		outdict[rank] = name
+	    name_status = result.find("name_status")
+	    if name_status.text == "accepted name":
+		classification = result.find("classification")
+		for taxon in classification.iterfind("taxon"):
+		    rank = taxon.find("rank").text
+		    name = taxon.find("name").text
+		    outdict[rank] = name
 	return outdict
 
     def get_classification(self, taxon_name):
